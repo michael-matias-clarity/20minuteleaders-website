@@ -4,23 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>20MinuteLeaders | Conversations with World-Class Leaders</title>
-    <meta name="description" content="1,171+ conversations with the world's most prominent leaders. 20 minutes, infinite insights.">
+    <meta name="description" content="1,171+ conversations with the world's most prominent leaders. 20 minutes, infinite insights. Hosted by Michael Matias.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎙️</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%230F172A' width='100' height='100' rx='20'/><text x='50' y='62' font-size='40' fill='white' text-anchor='middle' font-weight='bold'>20</text></svg>">
     <style>
         :root {
-            --bg: #ffffff;
-            --bg-dark: #000000;
-            --text: #000000;
-            --text-light: #ffffff;
-            --text-gray: #aab3c2;
-            --text-muted: #717e92;
-            --border: #e4e7ec;
-            --accent: #8c8cfd;
-            --card-radius: 24px;
-            --small-radius: 9px;
+            /* 20MinuteLeaders Blue Brand */
+            --brand-blue: #0F172A;
+            --brand-blue-light: #1E293B;
+            --brand-blue-hover: #334155;
+            --brand-accent: #3B82F6;
+            --white: #FFFFFF;
+            --gray-100: #F1F5F9;
+            --gray-200: #E2E8F0;
+            --gray-400: #94A3B8;
+            --gray-600: #475569;
+            --gray-800: #1E293B;
+            
+            --radius: 12px;
+            --radius-lg: 20px;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
 
         * {
@@ -35,27 +41,24 @@
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.5;
+            background: var(--white);
+            color: var(--gray-800);
+            line-height: 1.6;
             -webkit-font-smoothing: antialiased;
         }
 
-        /* Container */
         .container {
-            max-width: 1352px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 24px;
         }
 
         /* Header */
         header {
-            padding: 20px 0;
-            border-bottom: 1px solid var(--border);
+            background: var(--brand-blue);
+            color: var(--white);
             position: sticky;
             top: 0;
-            background: rgba(255,255,255,0.95);
-            backdrop-filter: blur(10px);
             z-index: 100;
         }
 
@@ -63,20 +66,19 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+            padding: 16px 0;
         }
 
         .logo {
             font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--text);
+            font-weight: 800;
+            color: var(--white);
             text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            letter-spacing: -0.5px;
         }
 
-        .logo span {
-            color: var(--accent);
+        .logo .accent {
+            color: var(--brand-accent);
         }
 
         .nav-links {
@@ -86,55 +88,267 @@
         }
 
         .nav-links a {
-            color: var(--text-muted);
+            color: var(--gray-400);
             text-decoration: none;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             font-weight: 500;
             transition: color 0.2s;
         }
 
         .nav-links a:hover {
-            color: var(--text);
+            color: var(--white);
         }
 
-        /* Hero / Featured Episode */
+        .nav-cta {
+            background: var(--brand-accent) !important;
+            color: var(--white) !important;
+            padding: 10px 20px;
+            border-radius: var(--radius);
+            transition: background 0.2s;
+        }
+
+        .nav-cta:hover {
+            background: #2563EB !important;
+        }
+
+        /* Hero Section */
         .hero {
-            padding: 48px 0;
+            background: var(--brand-blue);
+            color: var(--white);
+            padding: 80px 0 100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: linear-gradient(to bottom right, var(--brand-blue) 49%, var(--white) 50%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
         }
 
         .hero-badge {
-            display: inline-block;
-            background: var(--bg-dark);
-            color: var(--text-light);
-            padding: 6px 12px;
-            border-radius: var(--small-radius);
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 12px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.1);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            margin-bottom: 24px;
+        }
+
+        .hero-badge .dot {
+            width: 8px;
+            height: 8px;
+            background: #22C55E;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
         }
 
         .hero-title {
-            font-size: 3rem;
-            font-weight: 700;
+            font-size: 3.5rem;
+            font-weight: 800;
             line-height: 1.1;
             margin-bottom: 24px;
-            max-width: 800px;
+            letter-spacing: -1px;
         }
 
         .hero-subtitle {
-            color: var(--text-muted);
-            font-size: 1.1rem;
+            font-size: 1.25rem;
+            color: var(--gray-400);
             margin-bottom: 32px;
+            max-width: 500px;
         }
 
-        /* Episode Cards Grid */
-        .episodes-section {
-            padding: 48px 0;
+        .hero-stats {
+            display: flex;
+            gap: 48px;
+            margin-top: 48px;
         }
 
-        .section-header {
+        .stat {
+            text-align: left;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--white);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--gray-400);
+        }
+
+        /* Featured Episode */
+        .featured {
+            padding: 80px 0 40px;
+            background: var(--white);
+        }
+
+        .section-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--brand-accent);
+            margin-bottom: 16px;
+        }
+
+        .featured-card {
+            background: var(--gray-100);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 0;
+        }
+
+        .featured-image {
+            background: var(--brand-blue);
+            aspect-ratio: 16/10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .featured-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .play-button {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .play-button:hover {
+            transform: scale(1.1);
+        }
+
+        .play-button svg {
+            width: 24px;
+            height: 24px;
+            margin-left: 4px;
+        }
+
+        .featured-content {
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .featured-meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .episode-badge {
+            background: var(--brand-blue);
+            color: var(--white);
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .featured-date {
+            color: var(--gray-600);
+            font-size: 0.85rem;
+        }
+
+        .featured-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--gray-800);
+            line-height: 1.3;
+        }
+
+        .featured-guest {
+            color: var(--brand-accent);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .featured-description {
+            color: var(--gray-600);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 24px;
+        }
+
+        .featured-actions {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: var(--radius);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: all 0.2s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--brand-blue);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: var(--brand-blue-light);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--gray-800);
+            border: 2px solid var(--gray-200);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--gray-400);
+        }
+
+        /* Episodes Grid */
+        .episodes {
+            padding: 60px 0;
+        }
+
+        .episodes-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -143,227 +357,137 @@
             gap: 16px;
         }
 
-        .section-title {
-            font-size: 0.85rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--text-muted);
-        }
-
-        /* Filters */
-        .filters {
+        .search-filter {
             display: flex;
             gap: 12px;
             align-items: center;
         }
 
-        .filter-btn {
-            background: transparent;
-            border: 2px solid var(--bg-dark);
-            color: var(--text);
-            padding: 8px 16px;
-            border-radius: var(--small-radius);
-            font-size: 0.85rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .filter-btn:hover, .filter-btn.active {
-            background: var(--bg-dark);
-            color: var(--text-light);
-        }
-
-        .search-box {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            border: 1px solid var(--text-gray);
-            border-radius: var(--small-radius);
-            padding: 8px 16px;
-            min-width: 200px;
-        }
-
-        .search-box input {
-            border: none;
-            outline: none;
+        .search-input {
+            padding: 12px 20px;
+            border: 2px solid var(--gray-200);
+            border-radius: var(--radius);
             font-size: 0.9rem;
-            width: 100%;
-            background: transparent;
+            min-width: 280px;
+            outline: none;
+            transition: border-color 0.2s;
         }
 
-        .search-box input::placeholder {
-            color: var(--text-gray);
+        .search-input:focus {
+            border-color: var(--brand-accent);
         }
 
-        /* Episode Grid */
         .episodes-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             gap: 24px;
         }
 
-        /* Episode Card */
         .episode-card {
-            background: var(--bg);
-            border-radius: var(--card-radius);
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-lg);
             overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
             text-decoration: none;
             color: inherit;
-            transition: transform 0.2s, box-shadow 0.2s;
-            display: flex;
-            flex-direction: column;
         }
 
         .episode-card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-        }
-
-        .episode-card:hover .card-image-overlay {
-            opacity: 1;
-        }
-
-        .card-image-wrapper {
-            position: relative;
-            background: var(--bg-dark);
-            border-radius: var(--card-radius);
-            overflow: hidden;
-            aspect-ratio: 832/500;
+            box-shadow: var(--shadow-lg);
         }
 
         .card-image {
+            aspect-ratio: 16/9;
+            background: var(--brand-blue);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform 0.3s;
         }
 
-        .episode-card:hover .card-image {
+        .episode-card:hover .card-image img {
             transform: scale(1.05);
         }
 
-        .card-image-overlay {
+        .card-number {
             position: absolute;
-            inset: 0;
-            background: rgba(2, 2, 95, 0.6);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: opacity 0.3s;
-            border-radius: var(--card-radius);
+            top: 12px;
+            left: 12px;
+            background: var(--brand-blue);
+            color: var(--white);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 700;
         }
 
-        .view-episode-btn {
-            background: white;
-            color: #4c4c4c;
-            padding: 12px 24px;
-            border-radius: 20px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+        .card-duration {
+            position: absolute;
+            bottom: 12px;
+            right: 12px;
+            background: rgba(0,0,0,0.7);
+            color: var(--white);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
         }
 
         .card-content {
-            padding: 20px 0;
-        }
-
-        .card-meta {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 12px;
-        }
-
-        .card-meta-left {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .card-category {
-            background: var(--bg-dark);
-            color: var(--text-light);
-            padding: 4px 10px;
-            border-radius: var(--small-radius);
-            font-size: 0.7rem;
-            font-weight: 600;
-            text-transform: uppercase;
+            padding: 20px;
         }
 
         .card-date {
-            color: var(--text-gray);
-            font-size: 0.85rem;
-        }
-
-        .card-platforms {
-            display: flex;
-            gap: 8px;
-        }
-
-        .platform-icon {
-            width: 28px;
-            height: 28px;
-            opacity: 0.7;
-            transition: opacity 0.2s;
-        }
-
-        .platform-icon:hover {
-            opacity: 1;
+            font-size: 0.8rem;
+            color: var(--gray-600);
+            margin-bottom: 8px;
         }
 
         .card-title {
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 600;
+            color: var(--gray-800);
             line-height: 1.4;
-            color: var(--text);
+            margin-bottom: 8px;
         }
 
-        .card-title:hover {
-            color: var(--accent);
+        .card-guest {
+            font-size: 0.85rem;
+            color: var(--brand-accent);
+            font-weight: 500;
         }
 
-        /* Load More */
         .load-more {
             text-align: center;
-            padding: 48px 0;
-        }
-
-        .load-more-btn {
-            background: transparent;
-            border: 2px solid var(--bg-dark);
-            color: var(--text);
-            padding: 12px 32px;
-            border-radius: var(--small-radius);
-            font-size: 0.9rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .load-more-btn:hover {
-            background: var(--bg-dark);
-            color: var(--text-light);
+            margin-top: 48px;
         }
 
         /* Subscribe Section */
         .subscribe {
-            padding: 64px 0;
-            border-top: 1px solid var(--border);
+            background: var(--brand-blue);
+            color: var(--white);
+            padding: 80px 0;
             text-align: center;
         }
 
         .subscribe-title {
-            font-size: 0.85rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--text-muted);
-            margin-bottom: 24px;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .subscribe-text {
+            color: var(--gray-400);
+            margin-bottom: 32px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .platforms {
@@ -376,19 +500,19 @@
         .platform-btn {
             display: flex;
             align-items: center;
-            gap: 8px;
-            padding: 12px 24px;
-            border: 2px solid var(--bg-dark);
-            border-radius: var(--small-radius);
+            gap: 10px;
+            padding: 14px 24px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: var(--radius);
+            color: var(--white);
             text-decoration: none;
-            color: var(--text);
             font-weight: 500;
             transition: all 0.2s;
         }
 
         .platform-btn:hover {
-            background: var(--bg-dark);
-            color: var(--text-light);
+            background: rgba(255,255,255,0.2);
         }
 
         .platform-btn img {
@@ -398,135 +522,74 @@
 
         /* Footer */
         footer {
-            background: var(--bg-dark);
-            color: var(--text-light);
-            padding: 64px 0 32px;
+            background: var(--gray-100);
+            padding: 48px 0;
         }
 
         .footer-inner {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
-            gap: 48px;
-        }
-
-        .footer-brand .logo {
-            color: var(--text-light);
-            margin-bottom: 24px;
-        }
-
-        .footer-newsletter {
-            margin-top: 24px;
-        }
-
-        .newsletter-input {
             display: flex;
-            gap: 8px;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 24px;
         }
 
-        .newsletter-input input {
-            flex: 1;
-            padding: 12px 16px;
-            border: 1px solid var(--text-muted);
-            border-radius: var(--small-radius);
-            background: transparent;
-            color: var(--text-light);
-            font-size: 0.9rem;
+        .footer-logo {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--gray-800);
         }
 
-        .newsletter-input input::placeholder {
-            color: var(--text-gray);
-        }
-
-        .newsletter-input button {
-            padding: 12px 24px;
-            background: var(--text-light);
-            color: var(--bg-dark);
-            border: none;
-            border-radius: var(--small-radius);
-            font-weight: 600;
-            cursor: pointer;
-        }
-
-        .footer-links h4 {
-            font-size: 0.8rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 16px;
-            color: var(--text-light);
-        }
-
-        .footer-links ul {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 12px;
+        .footer-links {
+            display: flex;
+            gap: 32px;
         }
 
         .footer-links a {
-            color: var(--text-gray);
+            color: var(--gray-600);
             text-decoration: none;
             font-size: 0.9rem;
             transition: color 0.2s;
         }
 
         .footer-links a:hover {
-            color: var(--text-light);
+            color: var(--gray-800);
         }
 
-        .footer-bottom {
-            margin-top: 48px;
-            padding-top: 24px;
-            border-top: 1px solid var(--text-muted);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: var(--text-gray);
+        .footer-copy {
+            color: var(--gray-600);
             font-size: 0.85rem;
         }
 
-        .social-links {
-            display: flex;
-            gap: 16px;
-        }
-
-        .social-links a {
-            color: var(--text-gray);
-            transition: color 0.2s;
-        }
-
-        .social-links a:hover {
-            color: var(--text-light);
-        }
-
-        /* Mobile */
+        /* Mobile Responsive */
         @media (max-width: 768px) {
             .hero-title {
+                font-size: 2.25rem;
+            }
+
+            .hero-stats {
+                gap: 32px;
+            }
+
+            .stat-number {
                 font-size: 2rem;
+            }
+
+            .featured-card {
+                grid-template-columns: 1fr;
             }
 
             .episodes-grid {
                 grid-template-columns: 1fr;
             }
 
-            .footer-inner {
-                grid-template-columns: 1fr;
-                gap: 32px;
-            }
-
             .nav-links {
                 display: none;
             }
 
-            .filters {
-                width: 100%;
-                flex-wrap: wrap;
-            }
-
-            .section-header {
+            .footer-inner {
                 flex-direction: column;
-                align-items: flex-start;
+                text-align: center;
             }
         }
     </style>
@@ -535,13 +598,11 @@
     <!-- Header -->
     <header>
         <div class="container header-inner">
-            <a href="/" class="logo">
-                🎙️ 20<span>Minute</span>Leaders
-            </a>
+            <a href="/" class="logo">20<span class="accent">Minute</span>Leaders</a>
             <nav class="nav-links">
                 <a href="#episodes">Episodes</a>
-                <a href="#subscribe">Subscribe</a>
-                <a href="https://www.linkedin.com/in/matiasmichael/" target="_blank">About Michael</a>
+                <a href="#about">About</a>
+                <a href="#subscribe" class="nav-cta">Subscribe</a>
             </nav>
         </div>
     </header>
@@ -549,53 +610,96 @@
     <!-- Hero -->
     <section class="hero">
         <div class="container">
-            <span class="hero-badge">Latest Episode</span>
-            <h1 class="hero-title" id="hero-title">Loading latest episode...</h1>
-            <p class="hero-subtitle">20-minute conversations with the world's most prominent leaders</p>
-        </div>
-    </section>
-
-    <!-- Episodes Section -->
-    <section class="episodes-section" id="episodes">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">All Episodes</h2>
-                <div class="filters">
-                    <button class="filter-btn active">View All</button>
-                    <div class="search-box">
-                        <svg width="16" height="16" viewBox="0 0 256 256" fill="currentColor">
-                            <path d="M232.49,215.51,185,168a92.12,92.12,0,1,0-17,17l47.53,47.54a12,12,0,0,0,17-17ZM44,112a68,68,0,1,1,68,68A68.07,68.07,0,0,1,44,112Z"/>
-                        </svg>
-                        <input type="text" id="search" placeholder="Find episodes...">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="dot"></span>
+                    New episodes daily
+                </div>
+                <h1 class="hero-title">Conversations with World-Class Leaders</h1>
+                <p class="hero-subtitle">20 minutes with the world's most prominent founders, executives, and innovators. Insights you can apply today.</p>
+                
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-number">1,171+</div>
+                        <div class="stat-label">Episodes</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">5+</div>
+                        <div class="stat-label">Years</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">20</div>
+                        <div class="stat-label">Minutes Each</div>
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <div class="episodes-grid" id="episodes-grid">
-                <!-- Episodes loaded by JS -->
-            </div>
-
-            <div class="load-more">
-                <button class="load-more-btn" id="load-more">Load More</button>
+    <!-- Featured Episode -->
+    <section class="featured">
+        <div class="container">
+            <div class="section-label">Latest Episode</div>
+            <div class="featured-card" id="featured-episode">
+                <div class="featured-image">
+                    <img src="" alt="" id="featured-img">
+                    <a href="#" class="play-button" id="featured-play">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M8 5v14l11-7z"/>
+                        </svg>
+                    </a>
+                </div>
+                <div class="featured-content">
+                    <div class="featured-meta">
+                        <span class="episode-badge" id="featured-badge">EP 1171</span>
+                        <span class="featured-date" id="featured-date">Jan 1, 2026</span>
+                    </div>
+                    <div class="featured-guest" id="featured-guest">Loading...</div>
+                    <h2 class="featured-title" id="featured-title">Loading latest episode...</h2>
+                    <p class="featured-description" id="featured-desc"></p>
+                    <div class="featured-actions">
+                        <a href="#" class="btn btn-primary" id="featured-listen">Listen Now</a>
+                        <a href="#" class="btn btn-secondary" id="featured-transcript">Read Transcript</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Subscribe Section -->
+    <!-- Episodes Grid -->
+    <section class="episodes" id="episodes">
+        <div class="container">
+            <div class="episodes-header">
+                <div class="section-label">All Episodes</div>
+                <div class="search-filter">
+                    <input type="text" id="search" placeholder="Search episodes, guests, topics..." class="search-input">
+                </div>
+            </div>
+            <div class="episodes-grid" id="episodes-grid">
+                <!-- Populated by JS -->
+            </div>
+            <div class="load-more">
+                <button id="load-more" class="btn btn-secondary">Load More Episodes</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Subscribe -->
     <section class="subscribe" id="subscribe">
         <div class="container">
-            <h3 class="subscribe-title">Subscribe on your favorite platform</h3>
+            <h2 class="subscribe-title">Never Miss an Episode</h2>
+            <p class="subscribe-text">Subscribe on your favorite platform and get notified when new conversations drop.</p>
             <div class="platforms">
-                <a href="https://podcasts.apple.com/us/podcast/20minuteleaders/id1 " class="platform-btn" target="_blank">
-                    <img src="https://framerusercontent.com/images/Qf9ayfboOmhI4Q6f0ZcJN9En3E.png" alt="Apple Podcasts">
-                    Apple Podcasts
-                </a>
                 <a href="https://open.spotify.com/show/5SGkdLOMzUyxZugfdR1rxs" class="platform-btn" target="_blank">
-                    <img src="https://framerusercontent.com/images/90S8Y25PDPS6Zpr4O89DpRsjq4.png" alt="Spotify">
+                    <img src="https://storage.googleapis.com/pr-newsroom-wp/1/2023/05/Spotify_Primary_Logo_RGB_Green.png" alt="Spotify">
                     Spotify
                 </a>
-                <a href="https://www.youtube.com/@20minuteleaders" class="platform-btn" target="_blank">
-                    <img src="https://framerusercontent.com/images/4tWlDWVU6kJnSqtdPHyOlZuI.png" alt="YouTube">
+                <a href="https://podcasts.apple.com/us/podcast/20minuteleaders/id1527307391" class="platform-btn" target="_blank">
+                    <img src="https://www.apple.com/v/apple-podcasts/b/images/overview/hero_icon__c135x5gz14mu_large.png" alt="Apple Podcasts">
+                    Apple Podcasts
+                </a>
+                <a href="https://www.youtube.com/playlist?list=PLX_lN2hQUMOd2Y93vJ4bqDLndqG2EdUhY" class="platform-btn" target="_blank">
+                    <img src="https://www.gstatic.com/youtube/img/branding/youtubelogo/svg/youtubelogo.svg" alt="YouTube">
                     YouTube
                 </a>
             </div>
@@ -604,50 +708,18 @@
 
     <!-- Footer -->
     <footer>
-        <div class="container">
-            <div class="footer-inner">
-                <div class="footer-brand">
-                    <a href="/" class="logo">🎙️ 20<span>Minute</span>Leaders</a>
-                    <p style="color: var(--text-gray); margin-top: 16px; max-width: 300px;">
-                        Conversations with the world's most prominent leaders. 20 minutes, infinite insights.
-                    </p>
-                    <div class="footer-newsletter">
-                        <p style="margin-bottom: 12px; font-size: 0.9rem;">Subscribe to updates</p>
-                        <div class="newsletter-input">
-                            <input type="email" placeholder="Enter your email">
-                            <button>Subscribe</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="footer-links">
-                    <h4>Explore</h4>
-                    <ul>
-                        <li><a href="#episodes">All Episodes</a></li>
-                        <li><a href="https://www.linkedin.com/in/matiasmichael/">About Michael</a></li>
-                        <li><a href="https://www.facebook.com/20minuteleaders/">Facebook</a></li>
-                    </ul>
-                </div>
-                <div class="footer-links">
-                    <h4>Follow</h4>
-                    <ul>
-                        <li><a href="https://www.linkedin.com/company/20minleaders-human-zeroday">LinkedIn</a></li>
-                        <li><a href="https://twitter.com/mataborni">Twitter</a></li>
-                        <li><a href="https://www.facebook.com/20minuteleaders/">Facebook</a></li>
-                    </ul>
-                </div>
+        <div class="container footer-inner">
+            <div class="footer-logo">20MinuteLeaders</div>
+            <div class="footer-links">
+                <a href="https://www.linkedin.com/in/matiasmichael/" target="_blank">About Michael</a>
+                <a href="https://www.linkedin.com/company/20minleaders" target="_blank">LinkedIn</a>
+                <a href="https://twitter.com/20minuteleaders" target="_blank">Twitter</a>
             </div>
-            <div class="footer-bottom">
-                <span>© 2026 20MinuteLeaders. All rights reserved.</span>
-                <div class="social-links">
-                    <a href="https://www.linkedin.com/company/20minleaders-human-zeroday" target="_blank">LinkedIn</a>
-                    <a href="https://twitter.com/mataborni" target="_blank">Twitter</a>
-                </div>
-            </div>
+            <div class="footer-copy">© 2026 20MinuteLeaders. All rights reserved.</div>
         </div>
     </footer>
 
     <script>
-        // Load episodes from JSON
         let episodes = [];
         let displayCount = 12;
         let filteredEpisodes = [];
@@ -658,16 +730,32 @@
                 episodes = await response.json();
                 filteredEpisodes = [...episodes];
                 
-                // Set hero
+                // Set featured episode
                 if (episodes.length > 0) {
                     const latest = episodes[0];
-                    document.getElementById('hero-title').textContent = latest.title || 'Latest Episode';
+                    document.getElementById('featured-badge').textContent = `EP ${latest.episode || ''}`;
+                    document.getElementById('featured-guest').textContent = latest.guest || '';
+                    document.getElementById('featured-title').textContent = latest.topic || latest.title;
+                    document.getElementById('featured-date').textContent = formatDate(latest.date);
+                    document.getElementById('featured-desc').textContent = stripHtml(latest.description).slice(0, 200) + '...';
+                    document.getElementById('featured-listen').href = latest.link || '#';
+                    document.getElementById('featured-play').href = latest.link || '#';
+                    if (latest.image) {
+                        document.getElementById('featured-img').src = latest.image;
+                        document.getElementById('featured-img').alt = latest.guest || latest.title;
+                    }
                 }
                 
                 renderEpisodes();
             } catch (error) {
                 console.error('Failed to load episodes:', error);
             }
+        }
+
+        function stripHtml(html) {
+            const tmp = document.createElement('div');
+            tmp.innerHTML = html || '';
+            return tmp.textContent || tmp.innerText || '';
         }
 
         function formatDate(dateStr) {
@@ -682,39 +770,19 @@
             
             grid.innerHTML = toShow.map(ep => `
                 <a href="${ep.link || '#'}" class="episode-card" target="_blank">
-                    <div class="card-image-wrapper">
-                        <img class="card-image" src="https://i.ytimg.com/vi/dQw4w9WgXcQ/maxresdefault.jpg" alt="${ep.title}" onerror="this.style.display='none'">
-                        <div class="card-image-overlay">
-                            <span class="view-episode-btn">
-                                View Episode
-                                <svg width="20" height="20" viewBox="0 0 40 40" fill="none">
-                                    <circle cx="20" cy="20" r="20" fill="white"/>
-                                    <path d="M22 21.8H11v-3.6h11.1L17 13l2.5-2.5L29 20l-9.5 9.5L17 27l5.2-5.2z" fill="#4C4C4C"/>
-                                </svg>
-                            </span>
-                        </div>
+                    <div class="card-image">
+                        <img src="${ep.image || ''}" alt="${ep.guest || ep.title}" onerror="this.style.display='none'">
+                        ${ep.episode ? `<span class="card-number">EP ${ep.episode}</span>` : ''}
+                        ${ep.duration ? `<span class="card-duration">${ep.duration}</span>` : ''}
                     </div>
                     <div class="card-content">
-                        <div class="card-meta">
-                            <div class="card-meta-left">
-                                <span class="card-category">20ML</span>
-                                <span class="card-date">${formatDate(ep.pubDate)}</span>
-                            </div>
-                            <div class="card-platforms">
-                                <a href="https://open.spotify.com/show/5SGkdLOMzUyxZugfdR1rxs" target="_blank" onclick="event.stopPropagation()">
-                                    <img class="platform-icon" src="https://framerusercontent.com/images/90S8Y25PDPS6Zpr4O89DpRsjq4.png" alt="Spotify">
-                                </a>
-                                <a href="https://podcasts.apple.com/us/podcast/20minuteleaders/id1" target="_blank" onclick="event.stopPropagation()">
-                                    <img class="platform-icon" src="https://framerusercontent.com/images/Qf9ayfboOmhI4Q6f0ZcJN9En3E.png" alt="Apple">
-                                </a>
-                            </div>
-                        </div>
-                        <h3 class="card-title">${ep.title || 'Untitled Episode'}</h3>
+                        <div class="card-date">${formatDate(ep.date)}</div>
+                        <h3 class="card-title">${ep.topic || ep.title}</h3>
+                        ${ep.guest ? `<div class="card-guest">${ep.guest}</div>` : ''}
                     </div>
                 </a>
             `).join('');
             
-            // Hide load more if all shown
             document.getElementById('load-more').style.display = 
                 displayCount >= filteredEpisodes.length ? 'none' : 'inline-block';
         }
@@ -724,7 +792,9 @@
             const query = e.target.value.toLowerCase();
             filteredEpisodes = episodes.filter(ep => 
                 (ep.title && ep.title.toLowerCase().includes(query)) ||
-                (ep.guest && ep.guest.toLowerCase().includes(query))
+                (ep.guest && ep.guest.toLowerCase().includes(query)) ||
+                (ep.topic && ep.topic.toLowerCase().includes(query)) ||
+                (ep.description && ep.description.toLowerCase().includes(query))
             );
             displayCount = 12;
             renderEpisodes();
@@ -736,7 +806,7 @@
             renderEpisodes();
         });
 
-        // Init
+        // Initialize
         loadEpisodes();
     </script>
 </body>
